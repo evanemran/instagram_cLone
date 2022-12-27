@@ -1,7 +1,11 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/widgets/heart_animation_widget.dart';
 
+import '../models/comment.dart';
 import '../models/post.dart';
+import '../models/user.dart';
 
 class PostWidget extends StatefulWidget {
   const PostWidget({Key? key, required this.post}) : super(key: key);
@@ -14,8 +18,36 @@ class PostWidget extends StatefulWidget {
 
 class _PostWidgetState extends State<PostWidget> {
   var heartIcon = "assets/images/heart.png";
+  bool isHeartAnimating = false;
+  bool isLiked = false;
+
+  User evan = User("evanemran", "Emran Khandaker Evan", "assets/images/stark.jpg", "102", "1890", "36", "Boom");
+  User stark = User("tony.stark", "Tony Stark", "assets/images/stark.jpg", "102", "19M", "4", "Boom");
+  User banner = User("bruce_banner", "Bruce Banner", "assets/images/stark.jpg", "102", "1890", "36", "Boom");
+  User natasha = User("scar.jo", "Scarlett Johansson", "assets/images/stark.jpg", "102", "1890", "36", "Boom");
+  User wanda = User("maximoff", "Wanda Maximoff", "assets/images/stark.jpg", "102", "1890", "36", "Boom");
+  User tchalla = User("tchalla", "King Tchalla", "assets/images/stark.jpg", "102", "1890", "36", "Boom");
+  User steve = User("steverogers", "Steve Rogers", "assets/images/stark.jpg", "102", "1890", "36", "Boom");
+
+  List<Post> postList = [];
+
+  List<Comment> cList = [];
+
   @override
   Widget build(BuildContext context) {
+
+    cList.add(Comment(evan, "just a random comment", "2min"));
+    cList.add(Comment(stark, "vision is lucky :v", "2min"));
+    cList.add(Comment(natasha, "We should hangout after your multiversal shit is over.", "2min"));
+    cList.add(Comment(banner, "@scar.jo count me in also.", "2min"));
+
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+
     double screenWidth = MediaQuery.of(context).size.width;
     var item = widget.post;
     return Column(
@@ -39,14 +71,31 @@ class _PostWidgetState extends State<PostWidget> {
         GestureDetector(
           onDoubleTap: () {
             setState(() {
-              item.isLiked = item.isLiked ? false : true;
+              item.isLiked = true;
+              isLiked = true;
+              isHeartAnimating = true;
             });
           },
-          child: Image.asset(item.pImage, fit: BoxFit.cover, width: screenWidth, height: screenWidth,),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Image.asset(item.pImage, fit: BoxFit.cover, width: screenWidth, height: screenWidth,),
+              HeartAnimationWidget(duration: const Duration(milliseconds: 500), widget: Opacity(opacity: isHeartAnimating ? 1 : 0, child: Image.asset("assets/images/heart_big.png", width: 100, height: 100, fit: BoxFit.fitHeight, color: Colors.white),), isAnimating: isHeartAnimating, onEnd: () {
+                setState(() {
+                  isHeartAnimating = false;
+                });
+              },)
+            ],
+          ),
         ),
-        Padding(padding: const EdgeInsets.fromLTRB(0, 4, 10, 0), child: Row(
+        Padding(padding: const EdgeInsets.fromLTRB(0, 4, 0, 0), child: Row(
           children: [
-            IconButton(onPressed: () {}, icon: Image.asset(item.isLiked ? "assets/images/red_heart.png" : "assets/images/heart.png", width: 24, height: 24)),
+            HeartAnimationWidget(widget: IconButton(onPressed: () {
+              setState(() {
+                isLiked = !isLiked;
+              });
+            }, icon: Image.asset(isLiked ? "assets/images/red_heart.png" : "assets/images/heart.png", width: 24, height: 24)),
+                isAnimating: isLiked),
             IconButton(onPressed: () {}, icon: Image.asset("assets/images/chat.png", width: 24, height: 24)),
             IconButton(onPressed: () {}, icon: Image.asset("assets/images/send.png", width: 24, height: 24)),
             const Expanded(child: SizedBox(width: 10,)),

@@ -29,7 +29,7 @@ class _ShopWidgetState extends State<ShopWidget> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(0.0),
         child: Column(
           children: [
             Container(
@@ -54,8 +54,8 @@ class _ShopWidgetState extends State<ShopWidget> {
             Expanded(child: SingleChildScrollView(
               child: GridView.count(
                 crossAxisCount: 2,
-                crossAxisSpacing: 4.0,
-                mainAxisSpacing: 4.0,
+                crossAxisSpacing: 2.0,
+                mainAxisSpacing: 2.0,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 children: List.generate(20, (index) {

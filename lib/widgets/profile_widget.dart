@@ -253,6 +253,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                         fontWeight: FontWeight.bold),
                   ),
                   style: ButtonStyle(
+                    elevation: MaterialStateProperty.all(0),
                       backgroundColor: MaterialStateColor.resolveWith(
                           (states) => AppColors.grey)),
                 ))
