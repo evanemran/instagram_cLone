@@ -9,7 +9,8 @@ class Post {
   String pCaption;
   String pTime;
   List<Comment> pComments;
+  bool isLiked;
 
   Post(this.pPoster, this.pImage, this.pLiked, this.pCaption, this.pTime,
-      this.pComments);
+      this.pComments, this.isLiked);
 }

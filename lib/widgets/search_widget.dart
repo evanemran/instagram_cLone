@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+import '../utils/app_colors.dart';
 
 class SearchWidget extends StatefulWidget {
   const SearchWidget({Key? key}) : super(key: key);
@@ -27,8 +30,48 @@ class _SearchWidgetState extends State<SearchWidget> {
           IconButton(onPressed: () {}, icon: Image.asset("assets/images/messenger.png", width: 24, height: 24,)),
         ],
       ),
-      body: Center(
-        child: Text("Search"),
+      body: Padding(
+        padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                margin: const EdgeInsets.fromLTRB(8,0,8,0),
+                decoration: const BoxDecoration(
+                    color: AppColors.grey,
+                    borderRadius: BorderRadius.all(Radius.circular(12))
+                ),
+                child: Row(
+                  children: const [
+                    Icon(Icons.search,),
+                    SizedBox(width: 8,),
+                    Expanded(child: TextField(
+                      decoration: InputDecoration.collapsed(hintText: "Search"),
+                    ))
+                  ],
+                ),
+
+              ),
+              const SizedBox(height: 8,),
+              Expanded(child: GridView.custom(
+                gridDelegate: SliverQuiltedGridDelegate(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  repeatPattern: QuiltedGridRepeatPattern.inverted,
+                  pattern: const [
+                    QuiltedGridTile(2, 2),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(1, 2),
+                  ],
+                ),
+                childrenDelegate: SliverChildBuilderDelegate(
+                      (context, index) => Image.asset("assets/images/stark.jpg", fit: BoxFit.cover,),
+                ),
+              ))
+            ],
+          ),
       ),
     );
   }

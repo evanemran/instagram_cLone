@@ -20,7 +20,7 @@ class _PhotosWidgetState extends State<PhotosWidget> {
         return Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/wanda.jpg"),
+              image: AssetImage("assets/images/stark.jpg"),
               fit: BoxFit.cover,
             ),
             borderRadius:

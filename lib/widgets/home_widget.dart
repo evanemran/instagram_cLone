@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:instagram_clone/models/story.dart';
 import 'package:instagram_clone/models/user.dart';
+import 'package:instagram_clone/widgets/post_widget.dart';
 
 import '../models/comment.dart';
 import '../models/post.dart';
@@ -39,20 +40,20 @@ class _HomeWidgetState extends State<HomeWidget> {
     cList.add(Comment(natasha, "We should hangout after your multiversal shit is over.", "2min"));
     cList.add(Comment(banner, "@scar.jo count me in also.", "2min"));
     
-    postList.add(Post(evan, "assets/images/wanda.jpg", "69", "What mouth?", "2 days", cList));
-    postList.add(Post(evan, "assets/images/wanda.jpg", "69", "What mouth?", "2 days", cList));
-    postList.add(Post(evan, "assets/images/wanda.jpg", "69", "What mouth?", "2 days", cList));
-    postList.add(Post(evan, "assets/images/wanda.jpg", "69", "What mouth?", "2 days", cList));
-    postList.add(Post(evan, "assets/images/wanda.jpg", "69", "What mouth?", "2 days", cList));
-    postList.add(Post(evan, "assets/images/wanda.jpg", "69", "What mouth?", "2 days", cList));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
+    postList.add(Post(evan, "assets/images/stark.jpg", "69", "What mouth?", "2 days", cList, false));
 
     List<Story> sList = [
-      Story("scar.jo", "assets/images/florance.png", "2 hour ago"),
-      Story("scar.jo", "assets/images/florance.png", "2 hour ago"),
-      Story("scar.jo", "assets/images/florance.png", "2 hour ago"),
-      Story("scar.jo", "assets/images/florance.png", "2 hour ago"),
-      Story("scar.jo", "assets/images/florance.png", "2 hour ago"),
-      Story("scar.jo", "assets/images/florance.png", "2 hour ago"),
+      Story("scar.jo", "assets/images/stark.jpg", "2 hour ago"),
+      Story("scar.jo", "assets/images/stark.jpg", "2 hour ago"),
+      Story("scar.jo", "assets/images/stark.jpg", "2 hour ago"),
+      Story("scar.jo", "assets/images/stark.jpg", "2 hour ago"),
+      Story("scar.jo", "assets/images/stark.jpg", "2 hour ago"),
+      Story("scar.jo", "assets/images/stark.jpg", "2 hour ago"),
     ];
     
     return Scaffold(
@@ -94,7 +95,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             backgroundColor: Colors.white,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(66),
-                              child: Image.asset("assets/images/florance.png", width: 66, height: 66, fit: BoxFit.cover,),
+                              child: Image.asset("assets/images/stark.jpg", width: 66, height: 66, fit: BoxFit.cover,),
                             ),
                           )
                         ],
@@ -120,7 +121,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             backgroundColor: Colors.white,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(66),
-                              child: Image.asset("assets/images/florance.png", width: 66, height: 66, fit: BoxFit.cover,),
+                              child: Image.asset("assets/images/stark.jpg", width: 66, height: 66, fit: BoxFit.cover,),
                             ),
                           )
                         ],
@@ -146,7 +147,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             backgroundColor: Colors.white,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(66),
-                              child: Image.asset("assets/images/florance.png", width: 66, height: 66, fit: BoxFit.cover,),
+                              child: Image.asset("assets/images/stark.jpg", width: 66, height: 66, fit: BoxFit.cover,),
                             ),
                           )
                         ],
@@ -172,7 +173,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             backgroundColor: Colors.white,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(66),
-                              child: Image.asset("assets/images/florance.png", width: 66, height: 66, fit: BoxFit.cover,),
+                              child: Image.asset("assets/images/stark.jpg", width: 66, height: 66, fit: BoxFit.cover,),
                             ),
                           )
                         ],
@@ -198,7 +199,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             backgroundColor: Colors.white,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(66),
-                              child: Image.asset("assets/images/florance.png", width: 66, height: 66, fit: BoxFit.cover,),
+                              child: Image.asset("assets/images/stark.jpg", width: 66, height: 66, fit: BoxFit.cover,),
                             ),
                           )
                         ],
@@ -224,7 +225,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             backgroundColor: Colors.white,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(66),
-                              child: Image.asset("assets/images/florance.png", width: 66, height: 66, fit: BoxFit.cover,),
+                              child: Image.asset("assets/images/stark.jpg", width: 66, height: 66, fit: BoxFit.cover,),
                             ),
                           )
                         ],
@@ -242,55 +243,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               itemBuilder: (context, position) {
                 var item = postList[position];
 
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(padding: const EdgeInsets.fromLTRB(10,10,0,10), child: Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 16,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Image.asset(item.pPoster.uImage, width: 30, height: 30, fit: BoxFit.cover,),
-                          ),
-                        ),
-                        const SizedBox(width: 10,),
-                        Expanded(child: Text(item.pPoster.uUsername, style: const TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),)),
-                        const SizedBox(width: 10,),
-                        IconButton(onPressed: () {}, icon: Image.asset("assets/images/dots.png", width: 20, height: 20,))
-                      ],
-                    ),),
-                    Image.asset(item.pImage, fit: BoxFit.cover, width: screenWidth, height: screenWidth,),
-                    Padding(padding: const EdgeInsets.fromLTRB(0, 4, 10, 0), child: Row(
-                      children: [
-                        IconButton(onPressed: () {}, icon: Image.asset("assets/images/heart.png", width: 24, height: 24)),
-                        IconButton(onPressed: () {}, icon: Image.asset("assets/images/chat.png", width: 24, height: 24)),
-                        IconButton(onPressed: () {}, icon: Image.asset("assets/images/send.png", width: 24, height: 24)),
-                        const Expanded(child: SizedBox(width: 10,)),
-                        IconButton(onPressed: () {}, icon: Image.asset("assets/images/saved.png", width: 24, height: 24)),
-                      ],
-                    ),),
-                    Padding(padding: const EdgeInsets.fromLTRB(10, 4, 10, 0), child: RichText(text: TextSpan(
-                        style: DefaultTextStyle.of(context).style,
-                        children: [
-                          const TextSpan(text: "Liked by ", style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal)),
-                          const TextSpan(text: "evanemran", style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold)),
-                          const TextSpan(text: " and ", style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal)),
-                          TextSpan(text: "${item.pLiked} others.", style: const TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold))
-                        ]
-                    )),),
-                    Padding(padding: const EdgeInsets.fromLTRB(10, 4, 10, 0), child: RichText(text: TextSpan(
-                        style: DefaultTextStyle.of(context).style,
-                        children: [
-                          TextSpan(text: "${item.pPoster.uUsername} ", style: const TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold)),
-                          TextSpan(text: item.pCaption, style: const TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal))
-                        ]
-                    )),),
-                    Padding(padding: const EdgeInsets.fromLTRB(10, 4, 10, 0), child: Text("View all ${item.pComments.length} comments", style: const TextStyle(color: Colors.black54, fontSize: 14, fontWeight: FontWeight.normal),),),
-                    Padding(padding: const EdgeInsets.fromLTRB(10, 4, 10, 0), child: Text(item.pTime, style: const TextStyle(color: Colors.black45, fontSize: 12),),),
-                    const SizedBox(height: 10,),
-                  ],
-                );
+                return PostWidget(post: item);
               }))
         ],
       ),

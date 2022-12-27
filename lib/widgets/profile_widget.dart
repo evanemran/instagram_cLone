@@ -154,7 +154,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(4),
                   child: Text(
                     "Emran Khandaker Evan",
@@ -164,7 +164,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                         fontSize: 14),
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(4),
                   child: Text(
                     "Digital Creator",
@@ -179,34 +179,34 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                   child: RichText(
                       text: TextSpan(
                           style: DefaultTextStyle.of(context).style,
-                          children: [
+                          children: const [
                         TextSpan(
                             text: "Programmer | Engineer | YouTuber\n",
-                            style: const TextStyle(
+                            style: TextStyle(
                                 color: Colors.black87,
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal)),
                         TextSpan(
                             text: "For Coding Tutorials, Follow ",
-                            style: const TextStyle(
+                            style: TextStyle(
                                 color: Colors.black87,
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal)),
                         TextSpan(
                             text: "@codingwithevan\n",
-                            style: const TextStyle(
+                            style: TextStyle(
                                 color: AppColors.blue,
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal)),
                         TextSpan(
                             text: "Need App?, Contact ",
-                            style: const TextStyle(
+                            style: TextStyle(
                                 color: Colors.black87,
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal)),
                         TextSpan(
                             text: "@softomaze",
-                            style: const TextStyle(
+                            style: TextStyle(
                                 color: AppColors.blue,
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal)),
@@ -239,7 +239,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(19, 10, 24, 0),
+            padding: const EdgeInsets.fromLTRB(19, 10, 24, 0),
             child: Row(
               children: [
                 Expanded(
@@ -291,7 +291,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(62),
                                   child: Image.asset(
-                                    "assets/images/florance.png",
+                                    "assets/images/stark.jpg",
                                     width: 62,
                                     height: 62,
                                     fit: BoxFit.cover,
@@ -339,7 +339,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(66),
                                   child: Image.asset(
-                                    "assets/images/florance.png",
+                                    "assets/images/stark.jpg",
                                     width: 66,
                                     height: 66,
                                     fit: BoxFit.cover,
@@ -387,7 +387,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(66),
                                   child: Image.asset(
-                                    "assets/images/florance.png",
+                                    "assets/images/stark.jpg",
                                     width: 66,
                                     height: 66,
                                     fit: BoxFit.cover,
@@ -435,7 +435,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(66),
                                   child: Image.asset(
-                                    "assets/images/florance.png",
+                                    "assets/images/stark.jpg",
                                     width: 66,
                                     height: 66,
                                     fit: BoxFit.cover,
@@ -483,7 +483,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(66),
                                   child: Image.asset(
-                                    "assets/images/florance.png",
+                                    "assets/images/stark.jpg",
                                     width: 66,
                                     height: 66,
                                     fit: BoxFit.cover,
@@ -531,7 +531,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(66),
                                   child: Image.asset(
-                                    "assets/images/florance.png",
+                                    "assets/images/stark.jpg",
                                     width: 66,
                                     height: 66,
                                     fit: BoxFit.cover,
