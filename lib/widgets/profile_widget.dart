@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:instagram_clone/utils/app_colors.dart';
 import 'package:instagram_clone/widgets/photos_widget.dart';
 
+import '../models/profile_menu.dart';
+
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({Key? key}) : super(key: key);
 
@@ -17,10 +19,23 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
   int selectedIndex = 0;
   var selectedColor = Colors.black;
 
+  List<ProfileMenu> mList = [
+    ProfileMenu("Settings", "assets/images/gear.png"),
+    ProfileMenu("Get Insights", "assets/images/insight.png"),
+    ProfileMenu("Your Activity", "assets/images/activity.png"),
+    ProfileMenu("Archive", "assets/images/restore.png"),
+    ProfileMenu("QR Code", "assets/images/qr.png"),
+    ProfileMenu("Saved", "assets/images/saved.png"),
+    ProfileMenu("Digital Collectibles", "assets/images/collectible.png"),
+    ProfileMenu("Close Friends", "assets/images/task.png"),
+    ProfileMenu("Favorites", "assets/images/star.png"),
+    ProfileMenu("Discover People", "assets/images/invite.png"),
+  ];
+
   @override
   void initState() {
     super.initState();
-    _controller = TabController(initialIndex: 1, length: 4, vsync: this);
+    _controller = TabController(initialIndex: 1, length: 3, vsync: this);
   }
 
   @override
@@ -53,7 +68,48 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                 height: 22,
               )),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Column(
+                      children: [
+                        Image.asset("assets/images/line.png", width: 34,),
+                        Expanded(child: ListView.builder(
+                            itemCount: mList.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, position) {
+                              var item = mList[position];
+                              return Padding(padding: const EdgeInsets.all(10), child: Row(
+                                children: [
+                                  Image.asset(item.icon, width: 26, height: 26,),
+                                  const SizedBox(width: 8,),
+                                  Text(item.title, style: const TextStyle(color: Colors.black, fontSize: 16),)
+                                ],
+                              ),);
+                            }))
+                      ],
+                    );
+                    /*return Container(
+                      height: 200,
+                      color: Colors.amber,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            const Text('Modal BottomSheet'),
+                            ElevatedButton(
+                              child: const Text('Close BottomSheet'),
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );*/
+                  },
+                );
+              },
               icon: Image.asset(
                 "assets/images/ham.png",
                 width: 22,
