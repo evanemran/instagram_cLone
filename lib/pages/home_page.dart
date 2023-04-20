@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/widgets/reels_widget.dart';
 
 import '../widgets/home_widget.dart';
 import '../widgets/picker_widget.dart';
@@ -21,13 +22,13 @@ class _HomePageState extends State<HomePage> {
   String homeIcon = "assets/images/home.png";
   String searchIcon = "assets/images/search.png";
   String postIcon = "assets/images/more.png";
-  String shopIcon = "assets/images/shop.png";
+  String shopIcon = "assets/images/video.png";
 
   List<Widget> homeMenuList = const [
     HomeWidget(),
     SearchWidget(),
     PickerWidget(),
-    ShopWidget(),
+    ReelsWidget(),
     ProfileWidget(),
   ];
 
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(icon: ImageIcon(AssetImage(homeIcon), color: Colors.black,), label: ""),
           const BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/search.png"), color: Colors.black,), label: ""),
           const BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/more.png"), color: Colors.black,), label: ""),
-          const BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/shop.png"), color: Colors.black,), label: ""),
+          const BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/video.png"), color: Colors.black,), label: ""),
           BottomNavigationBarItem(icon: CircleAvatar(radius: 16, backgroundColor: Colors.black, child: ClipRRect(
             borderRadius: BorderRadius.circular(28),
             child: Image.asset("assets/images/stark.jpg", width: 28, height: 28, fit: BoxFit.cover,),
@@ -64,25 +65,25 @@ class _HomePageState extends State<HomePage> {
           homeIcon = "assets/images/home_filled.png";
           searchIcon = "assets/images/search.png";
           postIcon = "assets/images/more.png";
-          shopIcon = "assets/images/shop.png";
+          shopIcon = "assets/images/video.png";
           break;
         case 1:
           homeIcon = "assets/images/home.png";
           searchIcon = "assets/images/search_filled.png";
           postIcon = "assets/images/more.png";
-          shopIcon = "assets/images/shop.png";
+          shopIcon = "assets/images/video.png";
           break;
         case 3:
           homeIcon = "assets/images/home.png";
           searchIcon = "assets/images/search.png";
           postIcon = "assets/images/more.png";
-          shopIcon = "assets/images/shop.png";
+          shopIcon = "assets/images/video.png";
           break;
         case 4:
           homeIcon = "assets/images/home.png";
           searchIcon = "assets/images/search.png";
           postIcon = "assets/images/more.png";
-          shopIcon = "assets/images/shop.png";
+          shopIcon = "assets/images/video.png";
           break;
       }
     });

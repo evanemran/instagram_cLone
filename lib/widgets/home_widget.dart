@@ -78,6 +78,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           const StoryListWidget(),
           Expanded(child: ListView.builder(
               itemCount: postList.length,
+              shrinkWrap: true,
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, position) {
                 var item = postList[position];

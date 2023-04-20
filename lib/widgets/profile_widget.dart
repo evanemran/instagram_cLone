@@ -184,7 +184,7 @@ class _ProfileWidgetState extends State<ProfileWidget> with SingleTickerProvider
                     child: Column(
                   children: const [
                     Text(
-                      "325",
+                      "154",
                       style: TextStyle(
                           color: Colors.black87,
                           fontSize: 18,
